@@ -141,28 +141,28 @@
 		<?php
 			$upd = DB::query('SELECT users.user_id, users.fn, users.un, textpost.textpost, textpost.date FROM users join textpost ON users.user_id = textpost.user_id order by date desc');
 
-			 // forEach($upd as $pd){
-			 // 		$profilepic = DB::query('SELECT profilePicName FROM profilepic where user_id = :id', array(':id' => $pd[0]));
+			 forEach($upd as $pd){
+			 		$profilepic = DB::query('SELECT profilePicName FROM profilepic where user_id = :id', array(':id' => $pd[0]));
 
-			 // 		if(isset($profilepic[0][0])){
-			 // 			echo "<div class='card lpc mb-5'>
-				// 			  <div class='card-body'>
-				// 			    <h6 class='card-title text-left'><img class='post-profile-img' src='public/profilePic/{$profilepic[0][0]}'> <a href='profile.php?u={$pd[2]}'>{$pd[1]}</a></h6><hr>
-				// 			    <p class='card-text'>{$pd[3]}</p> <hr>
-				// 			    <p class='card-link text-left '>Post on : {$pd[4]}</p>
-				// 			  </div>
-				// 		  </div>";
-			 // 		} else{
+			 		if(isset($profilepic[0][0])){
+			 			echo "<div class='card lpc mb-5'>
+							  <div class='card-body'>
+							    <h6 class='card-title text-left'><img class='post-profile-img' src='public/profilePic/{$profilepic[0][0]}'> <a href='profile.php?u={$pd[2]}'>{$pd[1]}</a></h6><hr>
+							    <p class='card-text'>{$pd[3]}</p> <hr>
+							    <p class='card-link text-left '>Post on : {$pd[4]}</p>
+							  </div>
+						  </div>";
+			 		} else{
 			 			
-				//  		echo "<div class='card lpc mb-5'>
-				// 				  <div class='card-body'>
-				// 				    <h6 class='card-title text-left'><img class='img-circle' src='public/image/profileImg.jpg' width='30px' height='auto'> <a href='profile.php?u={$pd[2]}'>{$pd[1]}</a></h6><hr>
-				// 				    <p class='card-text'>{$pd[3]}</p> <hr>
-				// 				    <p class='card-link text-left'>Post on : {$pd[4]}</p>
-				// 				  </div>
-				// 			  </div>";
-				//  		}
-				//  }
+				 		echo "<div class='card lpc mb-5'>
+								  <div class='card-body'>
+								    <h6 class='card-title text-left'><img class='img-circle' src='public/image/profileImg.jpg' width='30px' height='auto'> <a href='profile.php?u={$pd[2]}'>{$pd[1]}</a></h6><hr>
+								    <p class='card-text'>{$pd[3]}</p> <hr>
+								    <p class='card-link text-left'>Post on : {$pd[4]}</p>
+								  </div>
+							  </div>";
+				 		}
+				 }
 
 		 ?>
   	</div>

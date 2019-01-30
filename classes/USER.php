@@ -10,7 +10,7 @@ class USER
 		$passkey = filter_var($user['passkey']);
 		$cpasskey = filter_var($user['cpasskey']);
 
-		
+
 		// Checking for user Existance in Database
 
 		if(!(DB::query('SELECT `un` FROM `users` WHERE `un` = :un', array(':un'=>$un))) AND !DB::query('SELECT `email` FROM `users` WHERE `email` = :email', array(':email'=>$email))) {
@@ -27,6 +27,9 @@ class USER
 									':email' => $email,
 									':password' => password_hash($passkey, PASSWORD_BCRYPT)
 							));
+
+							DB::query('INSERT INTO about VALUES()');
+							
 							return json_encode(["status" => "success", "msg" => "Account Created Successfully."]);
 
 						} else{
@@ -64,7 +67,7 @@ class USER
 
 
 					return json_encode(["status" => "login_in", "msg" => "Authenticated Successfully.", "page" => "index.php"]);
-					
+
 		} else {
 			return json_encode(["status" => "incorrect_password", "msg" => "Incorrect username or password."]);
 		}
@@ -78,7 +81,7 @@ class USER
 		$data = $data['profilepic'];
 
 		$image_array_1 = explode(";", $data);
-		
+
 		$image_array_2 = explode(",", $image_array_1[1]);
 
 		$data = base64_decode($image_array_2[1]);
@@ -88,13 +91,13 @@ class USER
 		$path = '../public/profilePic/' . time() . '.png';
 
 		$imgName = time() . '.png';
-		
+
 		file_put_contents($path, $data);
 
 		DB::query('INSERT INTO profilepic VALUES (\'\', :pic, :user_id, NOW()) ', array(':pic' => $imgName, ':user_id' => $_COOKIE['MMID_']));
 
 		echo "success";
-	
+
 	}
 
 }

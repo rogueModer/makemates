@@ -45,7 +45,7 @@
   }
 
   if(isset($_POST['contNo'])){
-    $contNo = htmlspecialchars($_POST['contNo']);
+    $contNo = $_POST['contNo'];
 
       DB::query(' 
         UPDATE about SET `contactNo` =  :contactNo 
@@ -86,6 +86,72 @@ if(isset($_POST['relStatus'])){
 
       echo "saved";
   }
+
+  // Work and Education
+
+ if(isset($_POST['scName']) || isset($_POST['scPsYr'])){
+    
+    $scDetails = array(
+    	'scName' => $_POST['scName'],
+    	'scPsYr' => $_POST['scPsYr']
+    );
+
+    $scDetails = serialize($scDetails);
+
+      DB::query(' 
+        UPDATE about SET `scDetails` =  :scDetails 
+        WHERE user_id = :id', 
+        array(
+          ':id' => $_COOKIE['MMID_'], 
+          ':scDetails' => $scDetails)
+      );
+
+      echo "saved";
+  }
+
+  if(isset($_POST['workN']) || isset($_POST['workD'])){
+    
+    $workDetails = array(
+    	'workN' => $_POST['workN'],
+    	'workD' => $_POST['workD']
+    );
+
+    $workDetails = serialize($workDetails);
+
+      DB::query(' 
+        UPDATE about SET `workDetails` =  :workDetails 
+        WHERE user_id = :id', 
+        array(
+          ':id' => $_COOKIE['MMID_'], 
+          ':workDetails' => $workDetails )
+      );
+
+      echo "saved";
+  }
+
+
+  if(isset($_POST['add1']) || isset($_POST['add2']) || isset($_POST['add3']) ){
+    
+    $ltDetails = array(
+    	'add1' => $_POST['add1'],
+    	'add2' => $_POST['add2'],
+    	'add3' => $_POST['add3']
+    );
+
+    $ltDetails = serialize($ltDetails);
+
+      DB::query(' 
+        UPDATE about SET `ltDetails` =  :ltDetails 
+        WHERE user_id = :id', 
+        array(
+          ':id' => $_COOKIE['MMID_'], 
+          ':ltDetails' => $ltDetails )
+      );
+
+      echo "saved";
+  }
+
+
 
 
 

@@ -112,9 +112,95 @@
 			    <div id="workEducation" class="container tab-pane fade"><br>
 			      <h3>Work & Educations : </h3>
 
+			      <?php 
+
+
+			      	if(!isset($about['scDetails'])){
+			      		echo "<a href='#' id='addScDetails'>+ Add School</a></br>";
+			      		echo "<div id='scDetailsCard' class='card' style='height : 120px; display: none;'>
+								  <div class='card-body'>
+								 	<input type='text' name='scName' class='form-control mb-2' placeholder='Enter your College Name Or School Name.'>
+								 	<input type='text' name='scPsYr' class='form-control' placeholder='Passing year.'>
+								    <a href='#' id='scDetailsSave' class='btn btn-success btn-sm card-link'>Save</a>
+								    <a href='#' class='btn btn-danger btn-sm card-link cancel'>Cancel</a>
+								  </div>
+							</div>";
+			      	} else{
+					
+						$about['scDetails'] = unserialize($about['scDetails']);
+
+			      		echo "<span class='font-weight-bold'>Went to </span>
+			      					<span>
+			      						{$about['scDetails']['scName']}<br>
+			      						<span class='font-weight-bold'>Passed In </span><span>{$about['scDetails']['scPsYr']}</span>
+			      			   </span></br>";
+			      	}
+			    
+			      	if(!isset($about['workDetails'])){
+
+			      		echo "<a href='#' id='addWorks'>+ Add work</a></br>";
+			      		echo "<div id='workCard' class='card' style='height : 120px; display: none;'>
+								  <div class='card-body'>
+								 	<input type='text' name='workN' class='form-control mb-2' placeholder='Work'>
+								 	<input type='text' name='workD' class='form-control' placeholder='Work Description'>
+								    <a href='#' id='workSave' class='btn btn-success btn-sm card-link'>Save</a>
+								    <a href='#' class='btn btn-danger btn-sm card-link cancel'>Cancel</a>
+								  </div>
+							</div>";
+			      	} else{
+					
+						$about['workDetails'] = unserialize($about['workDetails']);					
+						
+						echo "<h4> About Work :</h4>";
+
+						echo "<span class='font-weight-bold'>Working as </span>
+			      					<span>
+			      						{$about['workDetails']['workN']}<br>
+			      						<span class='font-weight-bold'>About work </span><span>{$about['workDetails']['workD']}</span>
+			      			   </span></br>";
+			      	}
+
+		      ?>
+
+
+
+
 			    </div>
 			    <div id="location" class="container tab-pane fade"><br>
-			      <h3>Locations :</h3>
+			      <h3>About Location :</h3>
+
+			      <?php 
+
+
+			      	if(!isset($about['ltDetails'])){
+
+			      		echo "<a href='#' id='addLocation'>+ Add Location </a></br>";
+			      		echo "<div id='locationCard' class='card' style='height : 120px; display: none;'>
+								  <div class='card-body'>
+								 	<input type='text' name='add1' class='form-control mb-2' placeholder='City or Town Name'>
+								 	<input type='text' name='add2' class='form-control mb-2' placeholder='District'>
+								 	<input type='text' name='add3' class='form-control' placeholder='Pincode'>
+								    <a href='#' id='locationSave' class='btn btn-success btn-sm card-link'>Save</a>
+								    <a href='#' class='btn btn-danger btn-sm card-link cancel'>Cancel</a>
+								  </div>
+							</div>";
+			      	} else{
+					
+						$about['ltDetails'] = unserialize($about['ltDetails']);
+
+						echo "<span class='font-weight-bold'>Lives in </span>
+			      					<span>
+			      						{$about['ltDetails']['add1']}, {$about['ltDetails']['add2']}<br>
+			      						<span class='font-weight-bold' >Pin Code : {$about['ltDetails']['add3']}  </span> 
+			      			   </span>";
+			      	
+			      	}
+
+
+
+
+
+			       ?>
 
 			    </div>
 			  </div>

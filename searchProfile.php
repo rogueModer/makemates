@@ -39,7 +39,7 @@
 				<a href="index.php" class="nav-link btn btn-info btn-sm">Home</a>
 			</li>
 			<li class="nav-item">
-				<a href="editProfile.php" class="nav-link btn btn-danger btn-sm ml-2">My Profile</a>
+					<a href="profile.php?u=<?php  echo $userData[0][1]; ?>" class="nav-link btn btn-danger btn-sm ml-2">My Profile</a>
 			</li>
 			<li class="nav-item">
 				<a href="message.php" class="nav-link btn btn-primary btn-sm ml-2">Message</a>
@@ -75,7 +75,7 @@
 				 	  "<button value='{$data[2]}' class='btn btn-success btn-sm mr-2 float-right addfollowerBtn'> Follow</button></div>";
 				} else{
 					echo "<div class='list-group-item mb-3'> {$data[0]}" .
-					  "<button value='{$data[2]}' class='btn btn-primary btn-sm mr-2 float-right viewProfileBtn'>View Profile</button>" .
+					  "<a href='profile.php?u={$searchData[0][1]}' value='{$data[2]}' class='btn btn-primary btn-sm mr-2 float-right viewProfileBtn'>View Profile</a>" .
 				 	  "<button value='{$data[2]}' class='btn btn-success btn-sm mr-2 float-right unfollowerBtn'>Unfollow</button></div>";
 				}
 			}

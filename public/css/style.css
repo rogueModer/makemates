@@ -17,6 +17,10 @@ body{
 	height: 350px;
 }
 
+textarea{
+	margin-top: 10px;
+}
+
 #myHeader{
 	background-color: hsla(104, 9%, 11%, 1.0);
 	box-shadow: 1px 1px 1px white;
@@ -130,6 +134,9 @@ a[class="profilePages"]:hover{
 	height: 200px;
 	background-color: hsla(120, 3%, 93%, 1.0);
 }
+.card-body{
+	height: auto;
+}
 
 #textPost{
 	background-color: hsla(120, 1%, 93%, 1.0);
@@ -223,4 +230,18 @@ a[class="searchfollowerLink"]:hover{
 	background-color: rgba(236, 240, 241,0.7);
 	height: 400px;
 	width: 700px;
+}
+
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+	background-color : black;
+	color: whitesmoke;
+	font-weight : 1000;
+	border-bottom: 2px solid black;
+}
+
+.nav-tabs .nav-link{
+	background-color: whitesmoke;
+	color: black;
+	font-weight : 500px;
 }

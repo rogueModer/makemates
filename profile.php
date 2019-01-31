@@ -50,7 +50,7 @@
 					<a href="index.php" class="nav-link btn btn-info btn-sm">Home</a>
 				</li>
 				<li class="nav-item">
-					<a href="editProfile.php" class="nav-link btn btn-danger btn-sm ml-2">My Profile</a>
+					<a href="profile.php?u=<?php  echo $userData[0][1]; ?>" class="nav-link btn btn-danger btn-sm ml-2">My Profile</a>
 				</li>
 				<li class="nav-item">
 					<a href="message.php" class="nav-link btn btn-primary btn-sm ml-2">Message</a>

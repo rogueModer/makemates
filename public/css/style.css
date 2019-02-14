@@ -116,10 +116,16 @@ a[class="profilePages"]:hover{
 #userPostBox{
 	width: 50%;
 	margin: 5% auto;
-	height: 200px;
+	height: auto;
 	background-color: white;
 	box-shadow: 1px 1px 1px 1px gray;
+}
 
+#textPostBox{
+	margin: 0px;
+	border-radius: 5px;
+	box-shadow: 1px 1px 1px 1px black;
+	padding: 5px;
 }
 
 #userTimelineBox{
@@ -152,6 +158,8 @@ a[class="profilePages"]:hover{
 	height: auto;
 
 }
+
+
 
 li[class="fetchedPost"]{
 	list-style: none;
@@ -204,8 +212,11 @@ a[class="searchfollowerLink"]:hover{
 }
 
 .post-profile-img{
-	width: 6%;
+	position: relative;
+	top: 10px;
+	width: 8%;
 	border-radius: 50px;
+
 }
 
 #aboutBox{
@@ -245,3 +256,64 @@ a[class="searchfollowerLink"]:hover{
 	color: black;
 	font-weight : 500px;
 }
+#userLoadPost .card{
+	height: auto;
+}
+
+#userLoadPost .card{
+	margin: auto;
+	height: auto;
+	width: 500px;
+	box-shadow: 1px 1px 1px 1px whitesmoke;
+}
+
+#userLoadPost .card-header{
+	height: 70px;
+}
+
+#userLoadPost .card-body{
+	overflow: hidden;
+	padding: 0px;
+	width: 500px;
+}
+
+#userLoadPost .card .post-photo-box{
+}
+
+#userLoadPost .card .post-photo{
+	width: 100%;
+	height: 80%;
+}
+
+#userLoadPost .post_details{
+	text-align: left;
+}
+
+#userLoadPost .photo-content{
+	padding: 2%;
+	margin-bottom: 10px;
+	text-align: left
+}
+
+#userLoadPost .text-content{
+	padding: 2%;
+	font-size: 17px;
+	margin-bottom: 10px;
+	text-align: left
+}
+
+.post-user-name{
+	font-family: ubuntu;
+	font-size: 16px;
+}
+.post-date{
+	position: relative;
+	font-family: calibri;
+	font-size: 14px;
+	left: 40px;
+	top: -15px;
+	
+
+}
+
+

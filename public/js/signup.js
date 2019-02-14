@@ -29,18 +29,13 @@ function signUpSubmit(e){
 				if(result.status == "success"){
 	            	document.getElementById('result1').innerHTML = result.msg;
 	            	document.getElementById('result1').setAttribute('class', 'alert alert-success mb-3 text-center');
-
-	            	location.reload();
 	            }
 	            else{
 						document.getElementById('result1').innerHTML = result.msg;
 		            	document.getElementById('result1').setAttribute('class', 'alert alert-danger mb-3 text-center');
 	            }
-
 			}
 		}
-
 	}
-
 	e.preventDefault();
 }

@@ -11,5 +11,6 @@
 	<link rel="stylesheet" type="text/css" href="./public/css/croppie.css" />
 	<link rel="stylesheet" type="text/css" href="./public/css/style.css" />
 	<script src="./public/js/jquery.min.js"></script>
+	<script src="./public/js/jquery.form.min.js"></script>
 </head>
 <body>

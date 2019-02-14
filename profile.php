@@ -24,10 +24,6 @@
 		}
 
 
-		
-
-
-
 
 ?>
 	<nav class="navbar navbar-expand-md position-fixed" id="myHeader">

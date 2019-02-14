@@ -45,7 +45,7 @@
 
 		</div>
 	</div>
-	<div id="footer">© 2018 BAKERY IN. ALL RIGHTS RESERVED | MADE BY <a href="#">ARUSH SHARMA</a></div>
+	<div id="footer">© 2018 MAKEMATES CORPORATION ALL RIGHTS RESERVED | MADE BY <a href="#">ARUSH SHARMA</a></div>
 
 <?php
 	}
@@ -89,22 +89,19 @@
 	</nav>
 
 	<div id="userSidebar" class="card" >
-   		
+
    		<?php
-   			
+
    			if(DB::query('SELECT profilePicName FROM profilepic WHERE user_id = :id', array(':id' => $_COOKIE['MMID_']))){
    				$picName = DB::query('SELECT profilePicName FROM profilepic WHERE user_id = :id', array(':id' => $_COOKIE['MMID_']))[0][0];
    				if(isset($picName)){
    					echo "<img class='card-img-top' src='public/profilePic/{$picName}' alt='Card image' style='width:100%'>";
    				}
-   			} 
-   			else{
-   				echo "<a href='#' data-target='#userPhotoModal' data-toggle='modal'><img class='card-img-top' src='public/image/profileImg.jpg' alt='Card image' style='width:100%'></a>";	
    			}
-
-   		?> 
-
-   			
+   			else{
+   				echo "<a href='#' data-target='#userPhotoModal' data-toggle='modal'><img class='card-img-top' src='public/image/profileImg.jpg' alt='Card image' style='width:100%'></a>";
+   			}
+   		?>
 
    			<div class="card-body text-center">
    				<h6 class="card-title"><?php if(isset($userData)){ echo $userData[0][0];} ?></h6>
@@ -113,59 +110,27 @@
 
 		<!-- User Post -->
 
-  		<form action="config/auth.php" method="GET">
+  		<form action="config/auth.php" method="POST" enctype="multipart/form-data" id="postForm">
 			<div class="card" id="userPostBox">
-					<!-- Nav tabs -->
-				<ul class="nav nav-tabs">
-				    <li class="nav-item">
-					    <a class="nav-link active" data-toggle="tab" href="#textPostBox">Text</a>
-				  	</li>
-				  	<li class="nav-item">
-					    <a class="nav-link" data-toggle="tab" href="#photoVideoPost">Photo / Videos</a>
-				 	</li>
-				</ul>
+				<div class="card-header lead">Make a post here :</div>
 
-				<div class="tab-content">
-					<div class="tab-pane container active" id="textPostBox">
-						<textarea style="background-color: white;" class="form-control" name="textPost" rows="3" id="textPost" placeholder="Type your post here........"></textarea>
-						<input type="submit" class="btn btn-primary btn-md mt-2 float-right" id="postBtn" name="postBtn" value="Post">
-					</div>
-					<div class="tab-pane container fade" id="photoVideoPost">
-						Coming Soon
-					</div>
+				<div class="card-body">
+					<textarea name="textPost" cols="87" rows="4" placeholder="Write Text Here..........." id="textPostBox"></textarea>
 				</div>
-	   		</div>
+
+				<div class="card-footer">
+					Add Photo Here :
+					<input type="file" name="photoPost" >
+					<input type="submit" name="postBtn" class="btn btn-success btn-md float-right" value="Share">
+					<p id="postResult" class="text-center mt-2"></p>
+				</div>
+			</div>
+
    		</form>
-  	
+
 
   	<div class="container text-center" id="userLoadPost">
-		<?php
-			$upd = DB::query('SELECT users.user_id, users.fn, users.un, textpost.textpost, textpost.date FROM users join textpost ON users.user_id = textpost.user_id order by date desc');
-
-			 forEach($upd as $pd){
-			 		$profilepic = DB::query('SELECT profilePicName FROM profilepic where user_id = :id', array(':id' => $pd[0]));
-
-			 		if(isset($profilepic[0][0])){
-			 			echo "<div class='card lpc mb-5'>
-							  <div class='card-body'>
-							    <h6 class='card-title text-left'><img class='post-profile-img' src='public/profilePic/{$profilepic[0][0]}'> <a href='profile.php?u={$pd[2]}'>{$pd[1]}</a></h6><hr>
-							    <p class='card-text'>{$pd[3]}</p> <hr>
-							    <p class='card-link text-left '>Post on : {$pd[4]}</p>
-							  </div>
-						  </div>";
-			 		} else{
-			 			
-				 		echo "<div class='card lpc mb-5'>
-								  <div class='card-body'>
-								    <h6 class='card-title text-left'><img class='img-circle' src='public/image/profileImg.jpg' width='30px' height='auto'> <a href='profile.php?u={$pd[2]}'>{$pd[1]}</a></h6><hr>
-								    <p class='card-text'>{$pd[3]}</p> <hr>
-								    <p class='card-link text-left'>Post on : {$pd[4]}</p>
-								  </div>
-							  </div>";
-				 		}
-				 }
-
-		 ?>
+	
   	</div>
 
 
@@ -177,7 +142,6 @@
 
   					forEach($fList as $follower){
   						$fName = DB::query('SELECT `fn`, `un` FROM `users` WHERE `user_id` = :id', array(':id' => $follower[0]))[0];
-
 
   						echo "<li class='userfollowerList'>&#9787;<a class='searchfollowerLink' href='profile.php?u={$fName[1]}'>" . $fName[0] . "</a></li>";
   					}

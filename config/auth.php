@@ -26,12 +26,19 @@
 	if(LOGIN::isLoggedIn()){
 		if(isset($_POST['profilepic'])){
 			USER:: uploadProPic($_POST);
-			
-			
+
+
 		}
 	}
 
-	// debug($_POST);
+	if(LOGIN::isLoggedIn()){
+
+		if(isset($_POST) || isset($_FILES)){
+			$status = USER::post($_POST, $_FILES);
+			echo $status;
+		}
+	}
+
 
 
 

@@ -1,26 +1,26 @@
+$(document).ready(function(){
 
-var postBtn = document.getElementById('postBtn');
-var postText = document.getElementById('textPost');
+	$('#postForm').submit(function(e){
+		$('#postResult').hide();
+		$('#postForm').ajaxSubmit({
+			resetForm : true,
+			success : function(res){
+				res = JSON.parse(res);
+					$('#postResult').show();
 
-postBtn.addEventListener('click', savePost);
+					$('#postResult').text(res.msg);
+					$('#postResult').addClass('text-danger');
 
-function savePost(e){
+					 location.reload();
+				if(res.status == 'success'){
+					setTimeout(()=>{
+							$('#postResult').hide();
+					}, 2000);
+					
+				}
+			}
+		});
 
-  xhttp = new XMLHttpRequest;
-  url = "config/auth.php?textPost="+escape(postText.value)+"&postBtn=Post";
-  xhttp.open('GET', url, true);
-  xhttp.send();
-  xhttp.onreadystatechange = getResult;
-  e.preventDefault();
-}
-
-function getResult(){
-  if(this.status == 200 && this.readyState == 4){
-    if(this.responseText == "post_success"){
-        location.reload();
-    }
-  }
-}
-
-
-
+		e.preventDefault();
+	});
+});

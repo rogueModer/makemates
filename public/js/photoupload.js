@@ -17,7 +17,7 @@ $(document).ready(function(){
 
   $('#uploadBtn').on('click', function(){
 
-    $('#userPhotoModal').modal('hide')
+    $('#userPhotoModal').modal('hide');
 
     var reader = new FileReader();
     reader.onload = function (event) {
@@ -29,8 +29,6 @@ $(document).ready(function(){
     }
     
     $uploadFile = $('#upload_image')[0];
-
-    console.log($uploadFile);
 
 
     reader.readAsDataURL($uploadFile.files[0]);
@@ -44,6 +42,7 @@ $(document).ready(function(){
       type: 'canvas',
       size: 'viewport'
     }).then(function(response){
+     
       $.ajax({
         url:"config/auth.php",
         type: "POST",

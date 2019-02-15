@@ -43,19 +43,19 @@
 		<div id="collapsibleNavbar" class="collapse navbar-collapse text-center">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-					<a href="index.php" class="nav-link btn btn-info btn-sm">Home</a>
+					<a href="index.php" class="nav-link home-btn"><i class="fas fa-home"></i></a>
 				</li>
 				<li class="nav-item">
-					<a href="profile.php?u=<?php  echo $userData[0][1]; ?>" class="nav-link btn btn-danger btn-sm ml-2">My Profile</a>
+					<a href="profile.php?u=<?php  echo $userData[0][1]; ?>" class="nav-link"><i class="fas fa-user"></i></a>
 				</li>
 				<li class="nav-item">
-					<a href="message.php" class="nav-link btn btn-primary btn-sm ml-2">Message</a>
+					<a href="message.php" class="nav-link"><i class="fas fa-envelope"></i></a>
 				</li>
 				<li class="nav-item">
-					<a href="notification.php" class="nav-link btn btn-warning btn-sm ml-2">Notification</a>
+					<a href="notification.php" class="nav-link"><i class="fas fa-bell"></i></a>
 				</li>
 				<li class="nav-item">
-					<a href="signOut.php" class="nav-link btn btn-success btn-sm ml-2" data-toggle="modal" data-target="#signOutModal">Sign Out</a>
+					<a href="signOut.php" class="nav-link" data-toggle="modal" data-target="#signOutModal"><i class="fas fa-sign-out-alt"></i></a>
 				</li>
 			</ul>
 		</div>

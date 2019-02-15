@@ -50,8 +50,12 @@ $(document).ready(function(){
         success:function(data)
         {
           $('#uploadimageModal').modal('hide');
-          // $('#uploaded_image').html(data);
-          console.log(data)
+              
+              if(res == 'success'){
+                window.location.reload();          
+              } else{
+                alert('Something Goes Wrong, Try Again Later');
+              }
         
         }
       });

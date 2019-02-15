@@ -7,45 +7,66 @@
 
 ?>
 
-	<nav class="navbar navbar-expand-md position-fixed" id="myHeader">
-
-	<!-- Brand Name -->
-
-	<a href="index.php" class="navbar-brand" id="brand">MakeMates</a>
-
-	<!-- Navabar toggler button -->
-
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-
-	<!-- Navbar-links -->
-
-	<div id="collapsibleNavbar" class="collapse navbar-collapse text-center">
-		<ul class="navbar-nav ml-auto">
-			<li class="nav-item">
-				<a href="index.php" class="nav-link btn btn-danger btn-sm">Home</a>
-			</li>
-			<li class="nav-item">
-				<a href="loginPage.php" class="nav-link btn btn-primary btn-sm ml-2">Login</a>
-			</li>
-			<li class="nav-item">
-				<a href="signUpPage.php" class="nav-link btn btn-success btn-sm ml-2">Sign Up</a>
-			</li>
-		</ul>
-	</div>
-
-</nav>
-
-	<div class="container" style="margin-top: 100px;">
-		<div class="text-center">
-			<h1>Welcome To MakeMates</h1>
-			<h4>Online directory Where you can create an account and login and do more.</h4>
-			<h5>Join Us Today Now...<a href="signUpPage.php">Join</a></h5>
-
+	<header id="indexHeader">
+	
+			<div id="logo" class="col-lg-6 col-md-6 col-sm-6 text-center">
+				<a href="index.php" class="nav-brand">
+					<img src="public/image/mmLogo.png" width="200px">
+				</a>
+			</div>
+			<div id="loginContainer" class="col-lg-6 col-md-6 col-sm-6 text-center">
+					<form method="POST" action="config/auth.php" class="text-center" id="loginForm" >
+						<input type="text" name="username" id="username" placeholder="Username"> 
+						<input type="password" name="passkey" id="passkey" placeholder="Password">
+						<input type="submit" name="loginBtn" value="Login" class="btn btn-success btn-md">
+					</form>
+					<div id="result" class="text-center text-white ml-5"></div>
+			</div>
+		</header>
+		
+		<div class="mainContainer row" >
+			
+			<div class="col-lg-6 col-md-6 col-sm-6 text-center" style="background-color: rgba(106, 27, 154,0.1)">
+				<div class="lead" style="font-size: 40px; font-weight: 400">Welcome To MakeMates</div>
+				<div style="font-size: 20px;"> Online directory where you can make a profile to make and share post. </div>
+				<div id="community"></div>
+			</div>
+			
+			<div class="col-lg-6 col-md-6 col-sm-6">
+					<div style="font-size: 30px;" class="text-center">Create New Account</div>
+					<div class="container" id="signup_container">
+							<form method="POST" class="text-center" id="registerForm">
+								<input type="text" name="fullName" id="fn" placeholder="Full Name" > <br>
+								<input type="text" name="username" id="un" placeholder="Username"> <br>
+								<input type="text" name="emailId" id="eId" placeholder="Email ID"> <br>
+								<input type="password" name="passkey" id="pswd" placeholder="Password"> <br>
+								<input type="password" name="cpasskey" id="cpswd" placeholder="Confirm Password"> <br>
+								<input type="submit" name="signUpBtn" id="signUpBtn" value="Submit" class="btn btn-success btn-md">
+							</form>
+						<div id="result1"></div>
+					</div>
+			</div>
 		</div>
-	</div>
-	<div id="footer">© 2018 MAKEMATES CORPORATION ALL RIGHTS RESERVED | MADE BY <a href="#">ARUSH SHARMA</a></div>
+
+		<footer class="text-center page-footer text-white" >
+			© 2018 MAKEMATES CORP. LTD. ALL RIGHTS RESERVED | MADE BY <a href="#" class="text-warning">ARUSH SHARMA</a>			
+		</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <?php
 	}
@@ -56,10 +77,15 @@
 	<nav class="navbar navbar-expand-md position-fixed" id="myHeader">
 
 	<!-- Brand Name -->
-		<a href="index.php" class="navbar-brand" id="brand">MakeMates</a>
+		<div id="logo2">
+				<a href="index.php" class="nav-brand">
+					<img src="public/image/mmLogo2.png" width="110px">
+				</a>
+			</div>
+
 		<form class="form-inline" action="searchProfile.php" method="GET" >
 	    	<input class="form-control mr-sm-2 ml-5" name="searchUser" autocomplete="off" type="text" placeholder="Search followers. . . . ." id="searchfollower">
-	    	<button class="btn btn-success btn-md" type="submit">Search</button>
+	    	<button class="btn btn-success btn-sm" type="submit" name="searchBtn">Search</button>
 		</form>
 	<!-- Navabar toggler button -->
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -70,19 +96,19 @@
 		<div id="collapsibleNavbar" class="collapse navbar-collapse text-center">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-					<a href="index.php" class="nav-link btn btn-info btn-sm">Home</a>
+					<a href="index.php" class="nav-link home-btn"><i class="fas fa-home"></i></a>
 				</li>
 				<li class="nav-item">
-					<a href="profile.php?u=<?php  echo $userData[0][1]; ?>" class="nav-link btn btn-danger btn-sm ml-2">My Profile</a>
+					<a href="profile.php?u=<?php  echo $userData[0][1]; ?>" class="nav-link"><i class="fas fa-user"></i></a>
 				</li>
 				<li class="nav-item">
-					<a href="message.php" class="nav-link btn btn-primary btn-sm ml-2">Message</a>
+					<a href="message.php" class="nav-link"><i class="fas fa-envelope"></i></a>
 				</li>
 				<li class="nav-item">
-					<a href="notification.php" class="nav-link btn btn-warning btn-sm ml-2">Notification</a>
+					<a href="notification.php" class="nav-link"><i class="fas fa-bell"></i></a>
 				</li>
 				<li class="nav-item">
-					<a href="signOut.php" class="nav-link btn btn-success btn-sm ml-2" data-toggle="modal" data-target="#signOutModal">Sign Out</a>
+					<a href="signOut.php" class="nav-link" data-toggle="modal" data-target="#signOutModal"><i class="fas fa-sign-out-alt"></i></a>
 				</li>
 			</ul>
 		</div>
@@ -112,13 +138,13 @@
 
   		<form action="config/auth.php" method="POST" enctype="multipart/form-data" id="postForm">
 			<div class="card" id="userPostBox">
-				<div class="card-header lead">Make a post here :</div>
+				<div class="card-header lead" style="padding: 5px;">Make a post here :</div>
 
 				<div class="card-body">
-					<textarea name="textPost" cols="87" rows="4" placeholder="Write Text Here..........." id="textPostBox"></textarea>
+					<textarea name="textPost" cols="68" rows="4" placeholder="Write Text Here..........." id="textPostBox"></textarea>
 				</div>
 
-				<div class="card-footer">
+				<div class="card-footer" style="padding: 5px;">
 					Add Photo Here :
 					<input type="file" name="photoPost" >
 					<input type="submit" name="postBtn" class="btn btn-success btn-md float-right" value="Share">
@@ -204,8 +230,7 @@
     </div>
 </div>
 
-   	<script src="./public/js/sendPost.js"></script>
-	<script src="./public/js/loadPost.js"></script>
+	
 
 <?php
 }

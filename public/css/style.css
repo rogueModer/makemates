@@ -1,43 +1,80 @@
 body{
-	background-image: url("../image/bg.jpg");
+	background-image: url("../image/bg4.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
+
 	width: 100%;
 	height: 100%;
 }
+/*INDEX DESIGN*/
 
-#login_container{
-	background-color: hsla(0, 100%, 100%, 0.5);
-	color: black;
+#indexHeader{
+	width: 100%;
+	height: 80px;
+	/*background-color: rgba(106, 27, 154,1.0);*/
+	background-image: linear-gradient(to right, white, rgba(106, 27, 154,1.0));
+}
+
+
+#logo{
+	float: left;
+	height: auto;
+}
+
+#loginContainer{
+	clear: right;
+	float: right;
+}
+
+#loginContainer input[type="text"], #loginContainer input[type=password]{
 	width: 35%;
-	margin-top: 100px;
+	padding: 5px;
 	border-radius: 5px;
-	box-shadow: 2px 2px 2px 1px black;
-	height: 350px;
+	line-height: 20px;
+	margin: 10px auto;
 }
 
 textarea{
 	margin-top: 10px;
 }
 
+#result{
+	text-align: center;
+	width: 50%;
+}
+
+/* Navbar style */
+
 #myHeader{
-	background-color: hsla(104, 9%, 11%, 1.0);
+	background-color: rgba(74, 20, 140,1.0);
 	box-shadow: 1px 1px 1px white;
 	top: 0px;
 	width: 100%;
-	margin-bottom: 2%;
+	height: 45px;
+	overflow: hidden;
 	z-index: 5;
 }
 
-.navbar-toggler-icon{
-	border: 1px solid white;
-
+#collapsibleNavbar ul{
+	position: relative;
+	right: -20px;
 }
 
-input[type=text], input[type=password]{
-	border:none;
-	box-shadow: 1px 1px 1px 1px black;
+#collapsibleNavbar .nav-link{
+	font-size: 25px;
+	color: rgba(220, 221, 225,1.0);
+	padding-right: 20px;
+}
+
+#collapsibleNavbar .nav-link:hover{
+	font-size: 25px;
+	color: rgba(245, 246, 250,1.0);
+	padding-right: 20px;
+}
+
+.navbar-toggler-icon{
+	
 }
 
 a[class="profilePages"]{
@@ -50,16 +87,35 @@ a[class="profilePages"]:hover{
 
 }
 
+
+.mainContainer{
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 520px;
+}
+
+#community{
+	background-image: url(../image/community.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 300px;
+	height: 300px;
+	margin: 10px auto;
+}
+
 #signup_container{
-	background-color: hsla(0, 100%, 100%, 0.5);
-	color: black;
-	width: 35%;
-	height: 580px;
-	margin-top: 70px;
-	padding-top: 10px;
+	width: 80%;
+	margin: 5% auto;
+}
+
+#signup_container input[type=text], #signup_container input[type=password] {
+	width: 70%;
+	padding: 5px;
 	border-radius: 5px;
-	line-height: 20px;
-	box-shadow: 2px 2px 2px 1px black;
+	line-height: 30px;
+	margin: 5px auto;
 }
 
 #userSidebar{
@@ -84,7 +140,17 @@ a[class="profilePages"]:hover{
 	border-radius: 10px;
 	box-shadow: 1px 1px 1px red;
 }
+input[name=searchUser]{
+	height: 30px;
+}
+button[name=searchBtn]{
 
+}
+
+#logo2{
+	padding-left: 40px;
+	padding-right: 100px;
+}
 #searchBar{
 	position: fixed;
 	border : 2px solid black;
@@ -114,7 +180,7 @@ a[class="profilePages"]:hover{
 }
 
 #userPostBox{
-	width: 50%;
+	width: 40%;
 	margin: 5% auto;
 	height: auto;
 	background-color: white;
@@ -195,16 +261,7 @@ a[class="searchfollowerLink"]:hover{
 	color: green;
 }
 
-#footer{
-	position:absolute;
-	border: 1px solid black;
-	width: 100%;
-	bottom: 0px;
-	height: 30px;
-	color: white;
-	background-color: black;
-	text-align: center;
-}
+
 
 .lpc{
 	box-shadow: 1px 1px 1px 1px gray;
@@ -219,6 +276,12 @@ a[class="searchfollowerLink"]:hover{
 
 }
 
+.page-footer{
+	background-color: rgba(106, 27, 154,0.9);
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+}
 #aboutBox{
 	position: absolute;
 	width: 800px;
@@ -312,8 +375,23 @@ a[class="searchfollowerLink"]:hover{
 	font-size: 14px;
 	left: 40px;
 	top: -15px;
-	
 
 }
 
 
+
+
+
+
+
+
+
+
+
+/*MEDIA QUERY*/
+
+@media (max-width:580px){
+	.page-footer{
+		bottom: -25px;
+	}
+}

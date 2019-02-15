@@ -28,7 +28,8 @@ function signUpSubmit(e){
 
 				if(result.status == "success"){
 	            	document.getElementById('result1').innerHTML = result.msg;
-	            	document.getElementById('result1').setAttribute('class', 'alert alert-success mb-3 text-center');
+	            	document.getElementById('result1').setAttribute('class', 'alert alert-success mt-2 mb-3 text-center');
+	            	setTimeout(()=>{ window.location.reload();}, 2000);
 	            }
 	            else{
 						document.getElementById('result1').innerHTML = result.msg;
